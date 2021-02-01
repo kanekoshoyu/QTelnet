@@ -8,7 +8,9 @@ QTelnetTester::QTelnetTester(QWidget *parent) :
 	telnet(this)
 {
 	ui->setupUi(this);
-	ui->leAddr->setText("10.50.0.3");
+    //ui->leAddr->setText("10.50.0.3");
+    ui->leAddr->setText("192.0.0.1");
+
 	connect( &telnet, SIGNAL(newData(const char*,int)), this, SLOT(addText(const char*,int)) );
 	connect( &telnet, SIGNAL(stateChanged(QAbstractSocket::SocketState)), this, SLOT(onStateChanged(QAbstractSocket::SocketState)) );
 	connect( ui->cbCmd, SIGNAL(command(QString)), this, SLOT(onCommand(QString)));
